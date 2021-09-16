@@ -225,15 +225,15 @@ a:hover{
     color: #999;
     display: flex;
    /*justify-content: space-between;*/
-   text-align: left;
+   	text-align: left;
     margin-top: 10px;
 }
-.login__container--remember-me a{
+.login__container--remember-me{
     color: #999;
     font-size: 0.9rem;
     text-decoration: none;
 }
-.login__container--remember-me a:hover{
-    text-decoration: underline;
+.login__container--remember-me :hover{
+    /*text-decoration: underline;*/
 	color: #38d39f;
 }
