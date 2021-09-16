@@ -243,9 +243,12 @@ a:hover{
 .login__container--register a{
     color: #999;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 5px;
     text-decoration: none;
+	justify-content:center;
+   	text-align: center;
 }
 .login__container--register a:hover{
     text-decoration: underline;
+	color: #38d39f;
 }
