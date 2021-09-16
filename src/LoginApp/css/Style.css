@@ -237,3 +237,15 @@ a:hover{
     text-decoration: underline;
 	color: #38d39f;
 }
+.login__container--register{
+    font-size: 0.9rem;
+}
+.login__container--register a{
+    color: #999;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+}
+.login__container--register a:hover{
+    text-decoration: underline;
+}
