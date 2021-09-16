@@ -225,7 +225,7 @@ a:hover{
     color: #999;
     display: flex;
    /*justify-content: space-between;*/
-   	text-align: left;
+   	text-align: right;
     margin-top: 10px;
 }
 .login__container--remember-me{
