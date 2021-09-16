@@ -224,9 +224,9 @@ a:hover{
 .login__container--remember-me{
     color: #999;
     display: flex;
-   /*justify-content: space-between;*/
-   	text-align: right;
-	margin: 1rem 0;
+   	justify-content:left;
+   	text-align: left;
+    margin-top: 5 px;
 }
 .login__container--remember-me{
     color: #999;
@@ -234,6 +234,6 @@ a:hover{
     text-decoration: none;
 }
 .login__container--remember-me :hover{
-    /*text-decoration: underline;*/
+    text-decoration: underline;
 	color: #38d39f;
 }
