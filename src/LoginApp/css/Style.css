@@ -226,7 +226,7 @@ a:hover{
     display: flex;
    /*justify-content: space-between;*/
    	text-align: right;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .login__container--remember-me{
     color: #999;
