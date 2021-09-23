@@ -32,8 +32,9 @@
 }
 
 .text-shadow{
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.6);
-}
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.6);}
+
+
 
 #separador-ribbon{
     width: 100%;
@@ -49,4 +50,30 @@
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
 }
+
+.card-border{
+    border: solid 1px white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border:hover{
+    transform: scale(1.05);
+
+}
+
+#productos-destacados{
+    background: rgb(255, 255, 255);
+    background: url(../img/wallpapersden.com_k-empty-road_2560x1440.jpg), linear-gradient(0deg, rgba(99,196,255,1) 0%, rgb(99,196,255,1) 57%);
+    background-repeat: repeat-x;
+    background-size: 100%;
+    margin-top: -20px;
+}
+
+#tarjetas{
+    border-radius: 20px;
+}
+
+
 
