@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <img src="img/Rocky-Mountain-bicycles-Logo.png" alt="" width="350" style="margin-top: 0 % ;">
+        </a>
+
+        <button class="navbar-toggler" 
+        type="button" data-toggle="collapse" 
+        data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" aria-label="Toggle navigation">
+            
+        <span class="navbar-toggler-icon"></span>              
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left: 20%; margin-top: -5%;">
+          
+        <ul class="navbar-nav m-md-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Productos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ventas
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Estado de ventas</a></li>
+              <li><a class="dropdown-item" href="#">Administrar pedidos</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Inventarios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Administrar Roles</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+      
+    </div>
+    
+  </nav>
+
+<!-- Carrousel-->
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="background-color: steelblue">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/R.jfif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/imagenciclismo4.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/imagenciclismo3.jfif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/thumb-1920-597903.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/Cycling-4.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- Separador -->
+
+<div id="separador" class="container-fluid">
+  <div id="imagen-central" class="container w-50 pl-5 rounded-1">
+
+    <div class="row align-items-center">
+        <div class="col-sm-auto p-3"> 
+            <img src="img/R.png" class="w-75 mx-auto d-block" alt="" >
+        </div>
+
+        <div class="col-sm p-3 text-light text-center">
+            <p class="text-dark h3">Bienvenidos a</p>
+            <h4 class= "h2 text-shadow">Nuestra Plataforma</h4>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Separador Ribbon -->
+
+    <div id="separador-ribbon">
+      <div class= "content bg-dark">
+
+      </div>
+    </div>
+
+<!-- Productos Destacados -->
+
+    <div id="productos-destacados">
+      <div class="container-md p-5">
+        <div class="row pt-5">
+          <h3 class="text-center pb-5 pt-5 h1 text-shadow">Productos Destacados</h3>
+        </div>
+
+        <!-- Contenedor tarjetas -->
+        <div class="row">
+
+          <!-- Columna 1 -->
+          <div class="col-sm">
+            <!-- Primera tarjeta -->
+            <div class="card w-100 card-border btn-outline-primary mb-5" id="tarjetas">
+              <img src="img/jersey scott mujer.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">JERSEY MUJER SCOTT RALPH EDITION</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Cremallera frontal con bloqueo semiautomático.</li>
+                    <li>3 bolsillos traseros</li>
+                    <li>Bolsillo trasero repelente al agua</li>
+                    <h5>Precio $135.900</h5>
+                </ul>
+                </p>
+                <a href="#" class="btn btn-dark">Ordenar</a>
+              </div>
+            </div>            
+          </div>
+
+          <!-- Columna 2 -->
+          <div class="col-sm">
+            <!-- Segunda tarjeta -->
+            <div class="card w-100 card-border btn-outline-primary mb-5" id="tarjetas">
+              <img src="img/gafas scott.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">GAFAS DE SOL SCOTT SPUR</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Integración optimizada con el casco</li>
+                    <li>Refuerzo nasal ajustable</li>
+                    <li>Sistema de cambio de lentes fácil ELC </li>
+                    <li>Funda deportiva y bolsa de microfibra </li>
+                   
+                    <h5>Precio $654.900</h5>
+                </ul>
+                </p>
+                <a href="#" class="btn btn-dark">Ordenar</a>
+              </div>
+            </div>            
+          </div>
+
+          <div class="col-sm">
+            <!-- Tercera tarjeta -->
+            <div class="card w-100 card-border btn-outline-primary mb-5" id="tarjetas";">
+              <img src="img//casco scott.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">CASCO SCOTT CENTRIC</h5>
+                <p class="card-text">
+                  <ul>
+                    <li>Diseño exclusivo y de edición limitada</li>
+                    <li>Bajo peso</li>
+                    <li>Sistema de protección encefálica MIPS® Air</li>
+                    <h5>Precio $335.900</h5>
+                </ul>
+                </p>
+                <a href="#" class="btn btn-dark">Ordenar</a>
+              </div>
+            </div>            
+          </div>
+        </div>
+        <!-- Enlace github -->
+        <div class="row py-5">
+          <div class="col">
+            <h3 class="text-center " style="color: var(--bs-blue)">More Proyects on MinTic.com</h3>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col2 text-center" hr><a href="https://github.com/dcardonao5524/ProyectoCiclo3">Visita nuestro Github</a></div>
+          </div>
+      </div>
+    </div>
+
+    
+    </div>
+
+
+<!-- Separador Vendedores -->
+
+<!-- Vendedores -->
+
+<!-- Nuestra Marca -->
+
+<!-- Footer -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
