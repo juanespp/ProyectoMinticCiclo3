@@ -45,7 +45,7 @@
     background-color: var(--dt-background-color-container);
     border-radius: var(--dt-border-radius);
     color: var(--dt-text-color);
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     font-size: 12px;
 
@@ -53,6 +53,7 @@
 }
 
 .datatable-container .header-tools{
+    margin-left: 30%;
     border-bottom: solid 1px var(--dt-border-color);
     padding: var(--dt-padding);
     display: flex;
@@ -61,7 +62,7 @@
 }
 
 .datatable-container .header-tools .search{
-    width: 30%;
+    width: 100%;
 }
 
 .datatable-container .header-tools .search .search-input{
@@ -81,7 +82,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: start;
+    justify-content: last baseline;
     align-items: baseline;
 
 }
