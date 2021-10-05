@@ -15,6 +15,7 @@ function App() {
           <RegisterPage/>
         </Route>
       </Switch>
+      <p>test</p>
     </Router>
   );
 }
