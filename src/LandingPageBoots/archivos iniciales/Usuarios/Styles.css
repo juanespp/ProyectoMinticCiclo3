@@ -1,0 +1,94 @@
+#separador{
+   
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(131, 21, 21, 0.5) 25px, rgba(131, 21, 21, 0.5) 40px);
+    background-color: #9FA8DA;
+    
+}
+
+#separador::after{
+    content:'';
+    background-color: transparent;
+    display: block;
+    height: 20px;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    left: auto;
+    margin-top: -40px;
+}
+
+#imagen-central{
+    background-color:#9FA8DA;
+    position: relative;
+    margin-top: -20px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+}
+
+#imagen-central img{
+    position: relative;
+    margin-top: -40px;
+
+}
+
+.text-shadow{
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.6);}
+
+.row>*{
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+    font-size: calc(1.3rem + .6vw);
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#separador-ribbon{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+#separador-ribbon .content{
+    width: 150%;
+    height: 150px;
+    margin-left: -25%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.card-border{
+    border: solid 1px white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all ease-out 0.2s;
+}
+
+.card-border:hover{
+    transform: scale(1.05);
+
+}
+
+#tarjetas{
+    border-radius: 20px;
+}
+
+
+.autenticar{
+  width: 40%;
+	height: 300px;
+  margin: 0 auto;
+}
+
+
+
+
