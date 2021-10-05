@@ -1,18 +1,18 @@
 import React, { Fragment } from 'react';
 import LoginPage from '../src/login/LoginPage';
-import RegisterPage from '../src/register/RegisterPage'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavbarComponent from './shared/components/navbar/NavbarComponent';
+import LandingPage from "../src/landing_page/LandingPage";
 function App() {
   return (
     <Router>
       <NavbarComponent />
       <Switch>
-      <Route path="/" exact>
+      <Route path="/login" exact>
           <LoginPage/>
         </Route>
-        <Route path="/register" exact>
-          <RegisterPage/>
+        <Route path="/home" exact>
+          <LandingPage/>
         </Route>
       </Switch>
     </Router>

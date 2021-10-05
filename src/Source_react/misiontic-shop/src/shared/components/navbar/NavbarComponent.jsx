@@ -40,7 +40,10 @@ function NavbarComponent(props) {
 
                             <ul class="navbar-nav m-md-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <Link to="/home" class="nav-link active" aria-current="page">Home</Link>
+                                </li>
+                                <li class="nav-item">
+                                    <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Productos</a>
