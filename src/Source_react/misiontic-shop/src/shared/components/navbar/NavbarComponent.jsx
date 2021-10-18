@@ -46,7 +46,7 @@ function NavbarComponent(props) {
                                     <Link to="/login" class="nav-link active" aria-current="page">Login</Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Productos</a>
+                                    <Link to="productos" class="nav-link " href="#">Productos</Link>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +60,7 @@ function NavbarComponent(props) {
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Administrar Roles</a>
+                                    <Link to="administrar-roles" class="nav-link" href="#">Administrar Roles</Link>
                                 </li>
                             </ul>
                             <form class="d-flex">

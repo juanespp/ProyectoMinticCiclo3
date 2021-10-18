@@ -1,0 +1,48 @@
+.fondo1{
+    background:#33415c;  
+    background-image: url(/src/product_module/img/cyclist-4098989_1280.png);
+    background-size:cover;
+    margin-top: -1%;
+
+}
+
+.d-flex input {
+    margin: .9rem;
+}
+
+h1{
+    text-align: center;
+    font-family: "Bitter", "serif";
+    color: #e5e5e5;
+}
+.d-flex button {
+    margin: 1.5em .6em;
+    padding: .3em 2.4em;
+}
+
+.d-flex button .btninte:hover{
+    border-color: tomato;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform: translateY(-0.25em);
+}
+
+.fondo2{
+    background-color: #33415c;
+    background-image: url('/src/product_module/img/cyclist-4098989_1280.png');
+    background-size: cover;
+}
+.container table{
+    margin: 1em 10em;
+}
+
+table .btnedit{
+    cursor: pointer;
+    color: #0096c7 ;
+    
+}
+
+table .btndelete{
+    cursor: pointer;
+    color: tomato;
+}
