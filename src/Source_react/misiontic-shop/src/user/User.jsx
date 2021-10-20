@@ -7,22 +7,44 @@ function User(props){
     const [id, setId] = useState("0");
     const [rol, setRol] = useState("");
     const [estado, setEstado] = useState("");
+
+    const [users, setUsers] = useState([]);
+
+    const numbers = [1,2,3,4,5];
+    const listItems = numbers.map((number) =>
+        <tr>
+            <th scope="row">1</th>
+            <td><span className="Nombre">Mónica Alfaro</span></td>
+            <td>12345</td>
+            <td>Administrador</td>
+            <td>Autorizado</td>
+            <td>
+                <div className="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" className="btn btn-outline-primary" >Actualizar</button>
+                    <button type="button" className="btn btn-outline-secondary">Borrar</button>
+                </div>
+            </td>
+        </tr>
+    );
+
+
     
-    const getUser= async () => {
+    const getUsers= async () => {
         try {
             const response = await fetch("http://localhost:3001/get-user");
             const jsonResponse = await response.json();
-            const responseUser = jsonResponse.data;
-            const listUser = responseUser.map((user) =>
+            const responseUsers = jsonResponse.data;
+            const listUsers = responseUsers.map((user) =>
     
                 <tr>
-                    <th scope="row"> {user.nombre_usuario} </th>
-                    <td>{user.id}</td>
+                    <th scope="row"> {user.id} </th>
+                    <td>{user.nombre_usuario}</td>
                     <td>{user.rol}</td>
-                    <td>{user.estado}</td>         
+                    <td>{user.estado}</td>     
+                        
                 </tr>
              );
-            setUser (listUser)
+            setUsers (listUsers)
         }
         catch (error) {
             console.log(error)
@@ -30,7 +52,7 @@ function User(props){
 
     }
     useEffect(()=>{
-        getUser();
+        getUsers();
 
     },[]);
 
@@ -45,8 +67,8 @@ function User(props){
             <div className="container_autenticar">
                     <div className="d-flex justify-content-center inp form-group">
                         <form className="w-50" id="task-form">
-                            <input type="text" id="idproducto" className="form-control" placeholder="Nombre del usuario" onChange={(data)=>setNombre(data.target.value)}/>
                             <input type="text" id="nombreproducto" className="form-control" placeholder="ID usuario" onChange={(data)=>setId(data.target.value)}/>
+                            <input type="text" id="idproducto" className="form-control" placeholder="Nombre del usuario" onChange={(data)=>setNombre(data.target.value)}/>
                             <input type="text" id="tipoProducto" className="form-control" placeholder="Rol"onChange={(data)=>setRol(data.target.value)}/>
                             <input type="text" id="tipoProducto" className="form-control" placeholder="Estado"onChange={(data)=>setEstado(data.target.value)}/>
                         </form>
@@ -65,12 +87,12 @@ function User(props){
             <div className="container_tabla container d-flex table-responsive-sm" >
                 <div className="shadow p-3 mb-5 bg-body rounded">
                     <div className="table-responsive">
-                        <table className="table table-dark table-striped">
+                        <table className="table">
                             <thead>
                                 <tr>
-                                        <th></th>
-                                        <th>Nombre de usuario</th>
+                                        
                                         <th>ID</th>
+                                        <th>Nombre de usuario</th>  
                                         <th>Rol</th>
                                         <th>Estado</th>
                                         <th>Opciones</th>
@@ -78,7 +100,7 @@ function User(props){
                                 </tr>
                             </thead>
                             <tbody>
-                                {user}
+                                {users}
                             </tbody>
                                 <tr>
                                     <th scope="row">1</th>
