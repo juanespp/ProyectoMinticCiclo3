@@ -154,11 +154,11 @@ a:hover{
 .btn-login{
 	display: block;
 	width: 90%;
-	height: 50px;
+	height: 100px;
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #f02d2d, #f03333, #32be8f);
+	background-image: linear-gradient(to right, #f02d2d, #f03333, #2c35b4f6);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;

@@ -1,30 +1,36 @@
-import React, { Fragment } from 'react';
+import React, { Fragment} from 'react';
 import img1 from "./img/bicycle-quote.png";
 import img2 from "./img/Rocky-Mountain-bicycles-Logo.png"
 import "./css/Normalize.css";
 import "./css/Style.css";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function LoginPage() {
+    
+    const { loginWithRedirect } = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
+
 
     return (
         <Fragment>
             
-            <div class="container"/>
+            <div className="container"/>
             
                     <body>
-                        <div class="container">
-                            <div class="img">
+                        <div className="container">
+                            <div className="img">
                                 <img src={img1} alt="img1" />
                             </div>
 
-                            <div class="login-content">
+                            <div className="login-content">
 
                                 <form action="index.html" />
                                 <img src={img2} alt="img2" />
-                                <h2 class="title">Welcome Rocky Mountain Bikes</h2>
-                                <div class="input-div focus">
-                                    <div class="i">
-                                        <i class="user"></i>
+                                <h2 className="title">Welcome Rocky Mountain Bikes</h2>
+                                {/*<div className="input-div focus">
+                                    <div className="i">
+                                        <i className="user"></i>
                                     </div>
 
                                     <div className="div">
@@ -33,8 +39,8 @@ function LoginPage() {
                                     </div>
                                 </div>
                                 <div className="input-div focus">
-                                    <div class="i">
-                                        <i class="lock"></i>
+                                    <div className="i">
+                                        <i className="lock"></i>
                                     </div>
 
                                     <div className="div">
@@ -43,18 +49,18 @@ function LoginPage() {
                                     </div>
                                 </div>
 
-                                <div class="login__container--remember-me">
+                                <div className="login__container--remember-me">
                                     <label>
                                         <input type="checkbox" name="Remember_me" id="cbox1" value="checkbox" />Remember me
                                     </label>
-                                </div>
+                                </div>*/}
 
+                                
                                
+                                <button className type="submit" className="btn-login" value="Login" onClick={() => loginWithRedirect()}>LOGIN</button>
+                                
 
-                                <input type="submit" class="btn-login" value="Login" />
-
-
-                                <p class="login__container--register"> Don't have an account? <a href="*">Create an account</a></p>
+                                {/*<p className="login__container--register"> Don't have an account? <a href="*">Create an account</a></p>*/}
                                 <form />
                             </div>
                         </div>

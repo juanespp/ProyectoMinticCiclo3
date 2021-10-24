@@ -1,23 +1,36 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, {Fragment, useState, useEffect} from "react";
 import './css/user_styles.css'
+import ForbidenComponent from '../shared/components/Forbiden/ForbidenComponent';
 
 function User(props){
-    const [user, setUser] = useState([]);
-    const [nombre, setNombre] = useState("");
-    const [id, setId] = useState("0");
-    const [rol, setRol] = useState("");
-    const [estado, setEstado] = useState("");
-
+    
     const [users, setUsers] = useState([]);
+    const [validUser, setValidUser] = useState(false);
+    const { user, isAuthenticated } = useAuth0();
+    const { loginWithRedirect } = useAuth0();
+    
+    //Hooks
+    
+        const [id, setId] = useState("0");
+        const [nombre_usuario, setNombre] = useState("");
+        const [rol, setRol] = useState("");
+        const [estado, setEstado] = useState("");
+        const [correo, setCorreo] = useState("");
+  
+
+
+    
 
     const numbers = [1,2,3,4,5];
     const listItems = numbers.map((number) =>
         <tr>
             <th scope="row">1</th>
-            <td><span className="Nombre">Mónica Alfaro</span></td>
-            <td>12345</td>
+             <td>12345</td>
+             <td>Mónica Alfaro</td>
             <td>Administrador</td>
             <td>Autorizado</td>
+            <td>monicaalfaromedina@gmail.com</td>
             <td>
                 <div className="btn-group" role="group" aria-label="Basic outlined example">
                     <button type="button" className="btn btn-outline-primary" >Actualizar</button>
@@ -41,7 +54,7 @@ function User(props){
                     <td>{user.nombre_usuario}</td>
                     <td>{user.rol}</td>
                     <td>{user.estado}</td>     
-                        
+                    <td>{user.correo}</td>    
                 </tr>
              );
             setUsers (listUsers)
@@ -51,75 +64,141 @@ function User(props){
         }
 
     }
+
+    const validateUserRole = async () => {
+        const response = await fetch(`http://localhost:3001/get-user?correo=${user.correo}`);
+        const jsonResponse = await response.json();
+        return jsonResponse;
+    }
+    const grantAccess = async () => {
+
+        let userData;
+        if (isAuthenticated) {
+            userData = await validateUserRole();
+            console.log(userData);
+
+        }
+        else {
+            if(!verifySesion()){
+                loginWithRedirect();
+            }
+                 
+            setValidUser(false);
+            return;
+        }
+
+        if (userData) {
+            if (userData.rol != "invited") {
+                setValidUser(true);
+                localStorage.setItem("state", userData.rol);
+                console.log (userData.rol);
+                await getUsers();
+            }
+            else {
+                localStorage.setItem("state", userData.rol);
+                setValidUser(false);
+            }
+        }
+        else {
+            setValidUser(false);
+        }
+    }
+    const verifySesion = () => {
+        const cookies = document.cookie;
+        let state = false;
+        if(cookies.includes('auth0')){
+            state = true;
+        }
+        return state;
+    }
+
     useEffect(()=>{
+        grantAccess();
         getUsers();
 
-    },[]);
+    }, [isAuthenticated, validUser]);
 
     return(
         <Fragment>
-            {/*título*/}
-            <div className="container text-center  justify-content-center ">
-                <h1 className="pt-5 display-3"><span className="align-middle"> Usuarios y administración de roles </span> </h1>
-            </div>
+            <div className="fondo_1">
 
-            {/*fomulario*/}
-            <div className="container_autenticar">
-                    <div className="d-flex justify-content-center inp form-group">
-                        <form className="w-50" id="task-form">
-                            <input type="text" id="nombreproducto" className="form-control" placeholder="ID usuario" onChange={(data)=>setId(data.target.value)}/>
-                            <input type="text" id="idproducto" className="form-control" placeholder="Nombre del usuario" onChange={(data)=>setNombre(data.target.value)}/>
-                            <input type="text" id="tipoProducto" className="form-control" placeholder="Rol"onChange={(data)=>setRol(data.target.value)}/>
-                            <input type="text" id="tipoProducto" className="form-control" placeholder="Estado"onChange={(data)=>setEstado(data.target.value)}/>
-                        </form>
-                    </div>
-            
-                    <div className="d-flex justify-content-center btninte">
-                        <button className="btn btn-success bg-dark" id="btnagregar">Agregar</button>
-                        <button className="btn btn-success bg-dark" id="btnbuscar">Buscar</button>
-                        <button className="btn btn-success bg-dark" id="btnactualizar">Actualizar</button>
-                        <button className="btn btn-success bg-dark" id="btnborrar">Eliminar Todo</button>
-                    </div>
-            </div>
-
-           
-            {/*tabla*/}
-            <div className="container_tabla container d-flex table-responsive-sm" >
-                <div className="shadow p-3 mb-5 bg-body rounded">
-                    <div className="table-responsive">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                        
-                                        <th>ID</th>
-                                        <th>Nombre de usuario</th>  
-                                        <th>Rol</th>
-                                        <th>Estado</th>
-                                        <th>Opciones</th>
-                                        
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {users}
-                            </tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td><span className="Nombre">Mónica Alfaro</span></td>
-                                    <td>12345</td>
-                                    <td>Administrador</td>
-                                    <td>Autorizado</td>
-                                    <td><div className="btn-group" role="group" aria-label="Basic outlined example">
-                                        <button type="button" className="btn btn-outline-primary" >Actualizar
-                                        </button>
-                                        <button type="button" className="btn btn-outline-secondary">Borrar</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                        </table>
-                    </div>  
+                {/*título*/}
+                <div className="container text-center1">
+                    <h1 class="display-3"> Usuarios y administración de roles</h1>
+                </div>      
+                {/*fomulario*/}
+                <div className="container_autenticar">
+                        <div className="d-flex justify-content-center inp form-group">
+                            <form className="w-50" id="task-form">
+                                <input type="number" id="id" className="form-control" placeholder="ID usuario" onChange={(data)=>setId(data.target.value)}/>
+                                <input type="text" id="nombre" className="form-control" placeholder="Nombre del usuario" onChange={(data)=>setNombre(data.target.value)}/>
+                                <input type="text" id="rol" className="form-control" placeholder="Rol"onChange={(data)=>setRol(data.target.value)}/>
+                                <input type="text" id="estado" className="form-control" placeholder="Estado"onChange={(data)=>setEstado(data.target.value)}/>
+                                <input type="text" id="correo" className="form-control" placeholder="Correo"onChange={(data)=>setCorreo(data.target.value)}/>
+                            </form>
+                        </div>
                 </div>
-            </div>
-             
+                    <div className="container_buttons">
+                        <div className="d-flex justify-content-center btninte">
+                            <button className="btn btn-success bg-dark" id="btnagregar">Agregar</button>
+                            <button className="btn btn-success bg-dark" id="btnbuscar">Buscar</button>
+                            <button className="btn btn-success bg-dark" id="btnactualizar">Actualizar</button>
+                            <button className="btn btn-success bg-dark" id="btnborrar">Eliminar Todo</button>
+                        </div>
+                    </div>
+                
+
+            
+                {/*tabla*/}
+            <div className= "container_tabla">
+                <div className="table-responsive">
+                {validUser ?<table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                            <th>ID</th>  
+                            <th>Nombre del usuario</th> 
+                            <th>Rol</th> 
+                            <th>Estado</th> 
+                            <th>Correo</th> 
+                            <th>Opciones</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {users}
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">123</th>
+                                <td>Mónica Alfaro</td>
+                                <td>Administrador</td>
+                                <td>Autorizado</td>
+                                <td>monicaalfar@gmail.com</td>
+                                <td>
+                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                            <button className="btn btn-success bg-dark" id="btnagregar">Editar</button>
+                                            <button className="btn btn-success bg-dark" id="btnbuscar">Borrar</button>
+                                        </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">123</th>
+                                <td>Mónica Alfaro</td>
+                                <td>Administrador</td>
+                                <td>Autorizado</td>
+                                <td>monicaalfaro@gmail.com</td>
+                                <td>
+                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                            <button className="btn btn-success bg-dark" id="btnagregar">Editar</button>
+                                            <button className="btn btn-success bg-dark" id="btnbuscar">Borrar</button>
+                                        </div> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> : <ForbidenComponent/>}
+                </div>
+            </div> 
+        </div>    
+                
         </Fragment>
     );
 }

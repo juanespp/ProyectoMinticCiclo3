@@ -2,9 +2,12 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './Rocky-Mountain-bicycles-Logo.png';
 import './navbar-styles.css';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function NavbarComponent(props) {
-
+    const { logout } = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
     let title = props.title;
 
     return (
@@ -27,6 +30,8 @@ function NavbarComponent(props) {
                             <img className="myImage" src={logo} alt="logo" />
                         </a>
 
+                        
+
                         <button class="navbar-toggler"
                             type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent"
@@ -37,7 +42,7 @@ function NavbarComponent(props) {
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+                            
                             <ul class="navbar-nav m-md-auto">
                                 <li class="nav-item">
                                     <Link to="/home" class="nav-link active" aria-current="page">Home</Link>
@@ -62,11 +67,18 @@ function NavbarComponent(props) {
                                 <li class="nav-item">
                                     <Link to="administrar-roles" class="nav-link" href="#">Administrar Roles</Link>
                                 </li>
+                                
                             </ul>
                             <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <input class="form-control2 me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button class="btn btn-outline-success" type="submit">Buscar</button>
                             </form>
+                            
+                                <div className="navbar-nav">
+                                    <Link to="/register" className="nav-link">Register</Link>
+                                    {isAuthenticated ? <a className="nav-link" onClick={() => logout({ returnTo: window.location.origin })}>Logout</a> : null}
+                                </div>
+                            
                         </div>
                     </div>
                 </nav>
