@@ -5,7 +5,8 @@
   "main": "indexUserModule.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon indexUserModule.js"
+    "start": "nodemon indexUserModule.js",
+    "dev": "nodemon indexUserModule.js" 
   },
   "author": "",
   "license": "ISC",

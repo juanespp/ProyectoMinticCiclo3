@@ -12,6 +12,13 @@ let connection;
 app.use(cors());
 app.use(express.json()); //Middleware
 
+// Asigancion de puerto para heroku
+app.set('port', process.env.PORT || port)
+// Endpoint de prueba para funcionamiento local 
+app.get("/", (req,res) => {
+    res.json("Backend misiontic");
+})
+
 //Buscar producto
 app.get("/get-products", async (request, response) => {
     const [rows, fields] = await connection.execute("SELECT * FROM registro_productos")
@@ -53,14 +60,14 @@ app.delete("/delete-product", async (req,res) => {
     res.json(product);
 })
 
-app.listen(port, async () => {
-    connection = await mysql.createConnection({
+app.listen(app.get('port'), async () => {
+    /* connection = await mysql.createConnection({
         host: 'localhost',
         user: 'root',
         database: 'rocky',
         Promise:bluebird
-      });
-    console.log("Server runing on port:" + port)
+      }); */
+    console.log("Server runing on port:" + app.get('port'))
 });
 
 
