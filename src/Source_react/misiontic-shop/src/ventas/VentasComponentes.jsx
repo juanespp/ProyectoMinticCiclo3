@@ -199,7 +199,7 @@ function VentasComponentes(){
 
         </Fragment>
     );
-   /*  }
+    /* }
     else {
         return <Redirect to="/"></Redirect>
     }     */

@@ -29,13 +29,15 @@ app.get("/get-user", async (req,res) =>{
 
 //Agregar
 app.post("/add-user", async (req, res) =>{
-    const user= req.body;
+    const {id, nombre_usuario,rol,estado, correo} = req.body;
+    const user= req.body; 
+    /* const user= req.body;
     const id= user.id;
     const nombre_usuario=user.nombre_usuario;
     const rol=user.rol;
     const estado=user.estado;
-    const correo=user.correo;
-    await connection.execute(`INSERT INTO usuarios (id, nombre_usuario, rol, estado) VALUES (${id},'${nombre_usuario}','${rol}', '${estado}','${correo}') `);
+    const correo=user.correo; */
+    await connection.execute(`INSERT INTO usuarios (id, nombre_usuario, rol, estado, correo) VALUES (${id},'${nombre_usuario}','${rol}', '${estado}','${correo}') `);
     console.log(user.name)
     res.json(user);
 })
@@ -62,7 +64,7 @@ app.delete("/delete-user", async (req, res) =>{
     const rol=user.rol;
     const estado=user.estado;
     const correo=user.correo;
-    await connection.execute(`DELETE FROM usuarios WHERE id = ${id} `);
+    await connection.execute(`DELETE FROM rocky WHERE id = ${id} `);
     console.log(user.name)
     res.json(user);
 })
