@@ -1,37 +1,32 @@
 import React, {Fragment} from "react";
 import { Link } from "react-router-dom";
+import './footer_styles.css'
 
 function FooterComponent(props){
     return(
         <Fragment>
-           <footer className="text-center text-lg-start bg-dark text-muted">
-               <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <footer className="text-center text-lg-start bg-dark text-muted">
+            <div className="container-buscanos justify-content-center justify-content-xl-between p-5 border-bottom">
+                <section className="d-flex ">
+                    
                     <div className="me-5 d-none d-lg-block">
-                     <span>Buscanos en nuestras redes sociales</span>
+                        <span>Buscanos en nuestras redes sociales</span>
                     </div>
-                    <div className="col">
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-twitter"></i>
-                        </a>
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-google"></i>
-                        </a>
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="" className="me-4 text-reset">
-                            <i class="bi bi-github"></i>
-                        </a>
-                    </div>
-               </section>
+                            <div class="social-icons">
+                                <ul class="list-group list-group-horizontal">
+                                    <li><a href="" className=" text-reset"><i className ="bi bi-facebook"></i></a></li>
+                                    <li><a href="" className="text-reset"><i className ="bi bi-twitter"></i></a></li>
+                                    <li><a href="" className="text-reset"><i className ="bi bi-google"></i></a></li>
+                                    <li><a href="" className="text-reset"><i className ="bi bi-instagram"></i></a></li>
+                                    <li><a href="" className="text-reset"><i className ="bi bi-linkedin"></i></a></li>
+                                    <li><a href="" className="text-reset"><i className ="bi bi-github"></i></a></li>
+                                </ul>
+                                    
+                            </div>                   
+                </section>
+                </div>
                <section>
-                   <div className="container text-center text-md-start mt-5">
+                   <div className="container1 text-center text-md-start mt-5">
                        <div className="row mt-3">
                            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                <h6 className="text-uppercase fw-bold mb-4">
@@ -41,7 +36,7 @@ function FooterComponent(props){
                                  Somos la Comercializadora mas grande de bicicletas y accesorios a nivel nacional.
                                </p>
                            </div>
-                           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                           <div className="col-md-1 col-lg-1 col-xl-1 mx-auto mb-4">
                                <h6 className="text-uppercase fw-bold mb-4">
                                  Productos
                                </h6>
@@ -52,7 +47,7 @@ function FooterComponent(props){
                                    <a href="" className="text-reset">Cascos</a>
                                </p>
                            </div>
-                           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                           <div className="col-md-1 col-lg-1 col-xl-1 mx-auto mb-4">
                                <h6 className="text-uppercase fw-bold mb-4">
                                     Explora
                                </h6>
@@ -82,10 +77,11 @@ function FooterComponent(props){
                    </div>
                </section>
               <div className="text-center p-4">
-                © 2021 Copyright:
-                <a href="" className="text-reset fw-bold">www.rmbicycles.com</a>
+                  
+                    © 2021 Copyright: <a href="" className="text-center text-reset fw-bold">www.rmbicycles.com</a>
+                    
               </div>
-           </footer>
+        </footer>
 
         </Fragment>
 
