@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './css/styles.css'
 import Axios from "axios";
 
-function ProductRegister(props) {
+function ProductRegister() {
     const [id, setId] = useState(0);
     const [nombre_producto, setNombreproducto] = useState("");
     const [tipo_producto, setTipoproducto] = useState("");
@@ -12,19 +12,51 @@ function ProductRegister(props) {
     const [cantidad, setCantidad] = useState(0);
     const [fecha, setFecha] = useState("");
 
-    const addProduct = () => {
-      console.log(id);
-      console.log(nombre_producto);
-      console.log(tipo_producto);
-      console.log(fabricante);
-      console.log(precio);
-      console.log(cantidad);
-      console.log(fecha);
+    const addProduct = async () => {
+      const productData = {
+        id:id,
+        nombre_producto:nombre_producto,
+        tipo_producto:tipo_producto,
+        fabricante:fabricante,
+        precio:precio,
+        cantidad:cantidad,
+        fecha:fecha
+      }
 
-      Axios.post('http://localhost:3000/productos/add-product', {id:id, nombre_producto:nombre_producto, tipo_roducto:tipo_producto, fabricante:fabricante, precio:precio, cantidad:cantidad, fecha:fecha}).then(() =>{
-        console.log("Succes");
+      const response = await fetch("http://localhost:3001/add-products", {
+        method:'POST',
+        headers:{
+          'Content-type': 'application/json'
+        },
+        body:JSON.stringify(productData)
       })
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+
     };
+
+    const deleteProduct = async () => {
+      const productData = {
+        id:id,
+        nombre_producto:nombre_producto,
+        tipo_producto:tipo_producto,
+        fabricante:fabricante,
+        precio:precio,
+        cantidad:cantidad,
+        fecha:fecha
+      }
+      const response = await fetch("http://localhost:3001/delete-product", {
+        method: 'DELETE',
+        headers:{
+          'Content-type': 'application/json'
+        },
+        body:JSON.stringify(productData)
+      })
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+    };
+
+
 
     const [products, setProducts] = useState([]);
 
@@ -43,6 +75,10 @@ function ProductRegister(props) {
       </tr>
     );
 
+    const  updateProduct = async (product) =>{
+      alert(product.id)
+    }
+
     const getProducts = async () =>{
       try{
         const response = await fetch("http://localhost:3001/get-products");
@@ -57,7 +93,7 @@ function ProductRegister(props) {
             <td>{product.precio}</td>
             <td>{product.cantidad}</td>
             <td>{product.fecha}</td>
-            <td><i class="bi bi-pencil-square btnedit"></i></td>
+            <td><i class="bi bi-pencil-square btnedit" onClick={() => updateProduct(product)}></i></td>
             <td><i class="bi bi-trash-fill btndelete"></i></td>
           </tr>
         );
@@ -83,23 +119,23 @@ function ProductRegister(props) {
         
             <div className="d-flex justify-content-center">
                 <form>
-                    <input type="text" id="idproducto" class="form-control" placeholder="ID Producto" onChange={(event) => {setId(event.target.value);}}/>
-                    <input type="text" id="nombreproducto" class="form-control" placeholder="Nombre Producto" onChange={(event) => {setNombreproducto(event.target.value);}} />
-                    <input type="text" id="tipoProducto" class="form-control" placeholder="Tipo de Producto " onChange={(event) => {setTipoproducto(event.target.value);}}/>
+                    <input type="text" id="idproducto" class="form-control" placeholder="ID Producto" onChange={(e) => setId(e.target.value)}/>
+                    <input type="text" id="nombreproducto" class="form-control" placeholder="Nombre Producto" onChange={(e) => setNombreproducto(e.target.value)} />
+                    <input type="text" id="tipoProducto" class="form-control" placeholder="Tipo de Producto " onChange={(e) => setTipoproducto(e.target.value)}/>
                     <div className="row">
                         <div class="col">
-                            <input type="text" id="fabricante" class="form-control" placeholder="Fabricante" onChange={(event) => {setFabricante(event.target.value);}}/>
+                            <input type="text" id="fabricante" class="form-control" placeholder="Fabricante" onChange={(e) => setFabricante(e.target.value)}/>
                          </div>
                         <div className="col">
-                            <input type="text" id="precio" class="form-control" placeholder="Precio" onChange={(event) => {setPrecio(event.target.value);}}/>  
+                            <input type="text" id="precio" class="form-control" placeholder="Precio" onChange={(e) => setPrecio(e.target.value)}/>  
                         </div>    
                     </div>
                     <div className="row">
                         <div className="col">
-                            <input type="text" id="cantidad" class="form-control" placeholder="Cantidad" onChange={(event) => {setCantidad(event.target.value);}}/>
+                            <input type="text" id="cantidad" class="form-control" placeholder="Cantidad" onChange={(e) => setCantidad(e.target.value)}/>
                         </div>
                         <div className="col">
-                            <input type="text" id="fecha" class="form-control" placeholder="Fecha" onChange={(event) => {setFecha(event.target.value);}}/>
+                            <input type="text" id="fecha" class="form-control" placeholder="Fecha" onChange={(e) => setFecha(e.target.value)}/>
                         </div>    
                     </div>
                 </form>
