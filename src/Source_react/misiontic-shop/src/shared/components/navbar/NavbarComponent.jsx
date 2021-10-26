@@ -58,10 +58,10 @@ function NavbarComponent(props) {
                                         Ventas
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item">Estado de ventas</a></li>
-                                        <li><a class="dropdown-item">Administrar pedidos</a></li>
+                                        <li><Link to="/ventas" class="dropdown-item">Estado de ventas</Link></li>
+                                     {/*    <li><a class="dropdown-item">Administrar pedidos</a></li>
                                         <li><hr class="dropdown-divider" /></li>
-                                        <li><a class="dropdown-item">Inventarios</a></li>
+                                        <li><a class="dropdown-item">Inventarios</a></li> */}
                                     </ul>
                                 </li>
                                 <li class="nav-item">
