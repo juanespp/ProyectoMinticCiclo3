@@ -81,6 +81,11 @@ function FooterComponent(props){
                     © 2021 Copyright: <a href="" className="text-center text-reset fw-bold">www.rmbicycles.com</a>
                     
               </div>
+              <div className="text-center p-4">
+                  
+                    Gracias a David.
+                    
+              </div>
         </footer>
 
         </Fragment>
