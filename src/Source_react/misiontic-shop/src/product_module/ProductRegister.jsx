@@ -57,7 +57,6 @@ function ProductRegister() {
     };
 
 
-
     const [products, setProducts] = useState([]);
 
     const numbers = [1,2,3,4,5];
@@ -145,7 +144,7 @@ function ProductRegister() {
                 <button class="btn btn-success bg-dark" id="btnagregar" onClick={addProduct}>Agregar</button>
                 <button class="btn btn-success bg-dark" id="btnbuscar">Buscar</button>
                 <button class="btn btn-success bg-dark" id="btnactualizar">Actualizar</button>
-                <button class="btn btn-success bg-dark" id="btnborrar">Eliminar Todo</button>
+                <button class="btn btn-success bg-dark" id="btnborrar" onClick={deleteProduct}>Eliminar</button>
             </div>
           </div>  
           <div className="container d-flex table-responsive-sm fondo2">

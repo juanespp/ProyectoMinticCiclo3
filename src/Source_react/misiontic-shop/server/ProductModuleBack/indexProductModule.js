@@ -45,8 +45,10 @@ app.put("/update-product", (req,res) => {
 })
 
 //Borrar
-app.delete("/delete-product", (req,res) => {
+app.delete("/delete-product", async (req,res) => {
     const product = req.body;
+    const id = product.id;
+    await connection.execute(`DELETE FROM registro_productos WHERE id = ${id} `)
     console.log(product.name)
     res.json(product);
 })
