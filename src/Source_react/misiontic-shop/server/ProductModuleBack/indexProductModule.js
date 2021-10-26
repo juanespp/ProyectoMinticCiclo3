@@ -12,7 +12,6 @@ let connection;
 app.use(cors());
 app.use(express.json()); //Middleware
 
-
 //Buscar producto
 app.get("/get-products", async (request, response) => {
     const [rows, fields] = await connection.execute("SELECT * FROM registro_productos")
@@ -22,7 +21,7 @@ app.get("/get-products", async (request, response) => {
     response.json({data:rows});
 
 })
-
+//test
 //Agregar
 app.post("/add-products", async (req,res) => {
     /* const [id, nombreproducto,tipoproducto,fabricante, precio, cantidad, fecha] = req.body; */
